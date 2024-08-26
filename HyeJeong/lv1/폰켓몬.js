@@ -11,3 +11,7 @@ function solution(nums) {
         return answer.size;
     }
 }
+//Set 입력 배열은 요소를 한번씩 탐색해야 되므로 O(n)
+//배열의 길이 구하는 것은 O(1)
+//조건문은 상수시간 O(n)
+//가장 많은 시간이 소요되는 부분은 Set객체를 생성하는 부분이라 전체 시간 복잡도는 O(n).
