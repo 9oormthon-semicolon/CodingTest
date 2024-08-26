@@ -7,6 +7,8 @@ function solution(nums) {
             if(!answer.includes(nums[i])) {
                 answer.push(nums[i]);
             }
+        } else if (answer.length === max) {
+            break;
         }
     }
     return answer.length;    
