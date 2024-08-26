@@ -22,3 +22,9 @@ function solution(nums) {
 
   return answer;
 }
+
+// 시간복잡도
+// nums.length / 2: O(1) 배열길이 계산하는것 : 상수시간
+// filter : O(n) * O(n) = O(n^2) 중복을 제거하는 과정
+// if else : 단순한 조건문으로 O(1)
+// 총 시간 복잡도는 O(n^2)
