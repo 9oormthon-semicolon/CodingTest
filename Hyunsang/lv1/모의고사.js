@@ -13,36 +13,20 @@ function solution(answers) {
     
     for ( let i = 0 ; i < answers.length ; i++ ) {
         //수포자 1의 정답비교
-        if ( i >= one.length ) {
             if( answers[i] ===  one[i % one.length] ) {
                 people[1]++
             }
-        } else {
-            if( answers[i] ===  one[i] ) {
-                people[1]++
-            }
-        }
+       
         //수포자 2의 정답비교
-         if ( i >= two.length ) {
             if( answers[i] === two[i % two.length] ) {
                 people[2]++
             }
-        } else {
-            if( answers[i] ===  two[i] ) {
-                people[2]++
-            }
-        }
-
         //수포자 3의 정답비교
-         if ( i >= three.length ) {
+   
             if( answers[i] ===  three[i % three.length] ) {
                 people[3]++
             }
-        } else {
-            if( answers[i] ===  three[i] ) {
-                people[3]++
-            }
-        }
+        
     }
     
     // 가장 많은 정답을 맞춘 수포자(들)을 찾기
@@ -73,6 +57,7 @@ function solution(answers) {
 4. 가장 많이 맞춘 수포자 찾기 위해 maxkeys 배열과 maxValue 정의
 5. people객체 순회하면서 가장 많이 맞춘 수포자 찾기.
 6. maxKeys 배열의 요소들이 문자열이므로 숫자로 변환해서 반환.
+
 
 */
 
