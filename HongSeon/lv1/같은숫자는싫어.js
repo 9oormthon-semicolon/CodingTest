@@ -23,6 +23,23 @@ function solution(arr)
     return result
 }
 
+function solution2(arr) {
+    // 스택
+    let stack = [];
+    
+    // 배열 순회
+    for (let i = 0; i < arr.length; i++) {
+        // 스택이 비어있거나 스택의 최상단 원소와 현재 원소가 다를 경우에만
+        // 스택에 현재 원소를 추가
+        if (stack.length === 0 || stack[stack.length - 1] !== arr[i]) {
+            stack.push(arr[i]);
+        }
+    }
+    
+    return stack;
+}
+
+
 /* 시간 복잡도
 1.
     let prev = arr[0]
@@ -41,4 +58,13 @@ function solution(arr)
 
 코드 전체 시간 복잡도 => O(n)
 
+3. 스택을 이용한 코드 시간 복잡도
+    for (let i = 0; i < arr.length; i++) {
+        if (stack.length === 0 || stack[stack.length - 1] !== arr[i]) {
+            stack.push(arr[i]);
+        }
+    }
+    - 배열길이 n이므로 n번 반복 => O(n)
+    
+코드 전체 시간 복잡도 => O(n)
 */
