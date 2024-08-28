@@ -11,7 +11,7 @@ function solution(arr)
     result.push(prev)
     
     // arr 배열의 2번째 부터 순회
-    for(let i = 0; i < arr.length; i++){
+    for(let i = 1; i < arr.length; i++){
         // 현재 원소가 이전 원소(prev)와 같지 않다면 중복x
         // 현재 원소를 정답 배열에 추가 후 이전 원소를 현재 원소로 갱신
         if (arr[i] !== prev){
@@ -47,7 +47,7 @@ function solution2(arr) {
     - 상수시간 => O(1)
 
 2.
-    for(let i = 0; i < arr.length; i++){
+    for(let i = 1; i < arr.length; i++){
         if (arr[i] !== prev){
             result.push(arr[i])
             prev = arr[i]
