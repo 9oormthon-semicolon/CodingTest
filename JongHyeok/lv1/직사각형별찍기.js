@@ -7,7 +7,7 @@ process.stdin.on('data', data => {
         for(let j=0; j<a; j++){
             str = str + "*"
         } 
-    console.log(str);
+        console.log(str);
     }
 });
 
