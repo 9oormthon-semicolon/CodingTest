@@ -32,9 +32,12 @@ function solution(n, lost, reserve) {
     return cabinet[n] > 0 ? cnt + 1 : cnt
 }
 
+// ** 수정 **
+
 // 모든 체육복 캐비넷에 추가하는 시간 + 여분 체육복 + 훔쳐간 체육복 계산  
-//O(n) O(lost) + O(reserce)
+// O(n * (reserve + lost))
 // 체육복을 빌려주는 계산 시간 O(n)
 
-// O(n) + O(lost) + O(reserve) + O(n) 
-// 4 * O(N) = O(N)
+// O(n * (reserve + lost)) + O(n) 
+// O(2n * (m + l))
+// O(n * (m + l))

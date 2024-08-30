@@ -27,7 +27,7 @@ TimSort를 사용하는데, 짧은 배열에서는 insertion sort를, 비교적 
 insertion sort의 경우 O(n)의 시간복잡도를 가지고, Merge sort의 경우 O(nlogn)의 시간복잡도를 가집니다.
 따라서 sort 함수의 시간복잡도는 O(nlogn)입니다.
 
-체육복을 빌려주는 과정은 for 반복문(시간복잡도 O(n)) 안에 filter 함수(시간복잡도 O(n))가 있기 때문에
+체육복을 빌려주는 과정은 for 반복문(시간복잡도 O(n)) 안에 include와 filter 함수(시간복잡도 O(n))가 있기 때문에
 시간 복잡도는 O(n^2)입니다.
 
 따라서 전체 코드의 시간복잡도는 O(n^2)입니다.*/
