@@ -1,50 +1,42 @@
 function solution(babbling) {
-    const patterns = ["aya", "ye", "woo", "ma"];
-    
-    let count = 0;
-    
-    babbling.forEach(word => {
-        let previousPattern = "";  // 이전에 사용된 패턴을 저장
-        let isValid = true;  // 단어가 유효한지 여부
-        
-        while (word.length > 0) {
-            let foundPattern = false;  // 패턴을 찾았는지 여부
-            
-            for (let pattern of patterns) {
-                // 현재 단어가 해당 패턴으로 시작하고, 이전 패턴이 아니면
-                if (word.startsWith(pattern) && pattern !== previousPattern) {
-                    word = word.slice(pattern.length);  // 패턴만큼 잘라냄
-                    previousPattern = pattern;  // 이전 패턴을 갱신
-                    foundPattern = true;  // 패턴을 찾았음을 표시
-                    break;  // 더 이상 반복하지 않고 다음으로 넘어감
-                }
-            }
-            
-            // 만약 패턴을 찾지 못했다면, 유효하지 않은 단어로 처리
-            if (!foundPattern) {
-                isValid = false;
-                break;
-            }
-        }
-        
-        // 단어가 모두 제거되었고 유효한 경우 카운트 증가
-        if (isValid && word === '') {
-            count++;
-        }
-    });
-    
-    return count;
-}
+    const wordSet = new Set(["aya", "ye", "woo", "ma"]);  // 허용된 단어 패턴들을 Set으로 저장
+    let answer = 0;  // 유효한 단어의 개수를 저장할 변수
 
+    // 주어진 단어 배열에서 각 단어를 순회
+    for (const word of babbling) {
+        let remainWord = '';  // 현재까지의 부분 문자열을 저장
+        let prevWord = '';  // 이전에 매칭된 단어를 저장 (중복 방지용)
+        
+        // 단어의 각 문자를 순차적으로 확인
+        for (const char of word) {
+            remainWord += char;  // 하나씩 문자를 추가해 부분 문자열을 생성
+            
+            // 만약 부분 문자열이 허용된 단어 중 하나라면
+            if (wordSet.has(remainWord)) {
+                // 직전에 매칭된 단어와 같은 단어가 연속되면 유효하지 않으므로 중단
+                if (remainWord === prevWord) break;
+
+                prevWord = remainWord;  // 현재 매칭된 단어를 prevWord에 저장
+                remainWord = '';  // 부분 문자열을 초기화하여 다음 매칭을 찾음
+            }
+        }
+
+        // 모든 문자를 처리했을 때 remainWord가 빈 문자열이면 유효한 단어로 간주
+        if (remainWord === '') result++;  
+    }
+    return answer;  // 유효한 단어의 개수를 반환
+}
 /**
  * 시간복잡도:
- * babbling.forEach :배열의 각 단어에 대해 처리를 하므로, 
- * n개의 단어가 있을 경우 배열을 순회하는 데 걸리는 시간은 O(n)
+ * for (const word of babbling)는 babbling 배열의 각 단어에 대해 한 번씩 순회
+ * O(n)
  * 
- * while: 한 번에 패턴이 한 개씩 제거되므로, 단어의 전체 길이만큼 루프가 반복
- * while 루프의 반복 횟수는 최대 O(m)
+ * for (const char of word)는 각 단어의 길이만큼 순회. 
+ * 각 단어의 길이를 m이라고 하면, 
+ * 이 루프는 최악의 경우 각 문자를 한 번씩 확인하므로 시간 복잡도는 O(m)
  * 
- * n: babbling 배열의 단어 수
- * m: 각 단어의 길이
- * 최종 시간 복잡도는 O(n * m)
+ * wordSet.has(remainWord)는 Set 자료 구조에서 특정 값이 존재하는지 확인하는 작업이며, 
+ * 이 작업은 O(1) 
+ * 
+ * 전체 시간 복잡도는 O(n * m)
  */
