@@ -22,7 +22,7 @@ function solution(babbling) {
         }
 
         // 모든 문자를 처리했을 때 remainWord가 빈 문자열이면 유효한 단어로 간주
-        if (remainWord === '') result++;  
+        if (remainWord === '') answer++;  
     }
     return answer;  // 유효한 단어의 개수를 반환
 }
