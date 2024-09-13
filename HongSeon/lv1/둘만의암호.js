@@ -6,7 +6,7 @@ function solution(s, skip, index) {
     
     for (let i = 0; i < s.length; i++) {
         let char = s[i];
-        // 현재 문자가 skipAlpha 배열에서의 인덱스 번호를 찾음
+        // skipAlpha 배열에서 현재 문자의 인덱스 번호를 찾음
         let charIndex = skipAlpha.indexOf(char);
         
         // (현재 문자 index) + index를 더하여 다음 문자로 이동하고 
