@@ -28,6 +28,9 @@ function solution(people, limit) {
     O(people)
     O(N)
 
+    인줄 알았는데 정렬 포함
+    O(n log N)이네요...
+
 */
 
 
