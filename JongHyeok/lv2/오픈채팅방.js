@@ -3,12 +3,15 @@ function solution(record) {
     let message = [];
     
 
-    function handleLog(logToList) { // 시간 복잡도 O(1)
-        const [action, id, nickname] = logToList;
-        if (action !== 'Leave') {
+    function handleLog(record) { // 시간 복잡도 O(n)
+        for (let log of record){
+            const [action, id, nickname] = log.split(" ");
+            if (action !== 'Leave') {
             // 들어오거나 닉네임을 변경했을 때 닉네임 업데이트
-            pairedIdNickname.set(id, nickname);
+                pairedIdNickname.set(id, nickname);
+            }
         }
+        
     }
 
     function setMessage(record) { // 시간복잡도 record의 길이만큼 O(n)
@@ -25,12 +28,7 @@ function solution(record) {
         }
     }
 
-    for(const log of record){ // 시간복잡도 record의 길이만큼 O(n)
-        // record 처리
-        const logToList = log.split(" ");
-        handleLog(logToList);
-    }
-
+    handleLog(record);
     setMessage(record);
 
     return message;
