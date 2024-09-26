@@ -1,4 +1,3 @@
-// 이게 뭔소리요..?
 // 결국엔 입퇴장 기록에 최종 ID를 대입하는 문제
 
 function solution(record) {
