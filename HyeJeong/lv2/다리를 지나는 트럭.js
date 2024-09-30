@@ -32,3 +32,4 @@ n은 truck_weights
 while문에서 모든 트럭이 다리를 건널 때 까지 실행되므로 bridge_length만큼 시간이 걸림
 최악의 경우 각 트럭이 다리를 건너는데 bridge_length 시간이 걸리고, 이를 n개의 트럭에 대해 반복하기 때문에
 결과적으로 전체 시간 복잡도는 O(bridge_length * n)
+*/
