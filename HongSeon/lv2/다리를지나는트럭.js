@@ -8,13 +8,12 @@ function solution(bridge_length, weight, truck_weights) {
     // 통과한 배열의 길이와 첫 배열의 길이가 같을 때 까지 반복
     while(pass.length !== Len){
         time++
-        console.log(onBridge)
         // 현재 다리 맨 앞의 트럭가져옴
         let now = onBridge.shift()
-        // 다리무게 - 가져온 트럭 무게
+        // 현재 다리 무게 - 가져온 트럭 무게
         sum -= now
         
-        // 제거된 트럭이 
+        // 가져온 트럭의 무게가 존재한다면 pass에 추가
         if(now > 0){
             pass.push(now)
         }
@@ -25,7 +24,7 @@ function solution(bridge_length, weight, truck_weights) {
             let next = truck_weights.shift()
             // 다리 끝에 추가
             onBridge.push(next)
-            // 다리 무게 + 가져온 트럭 무게
+            // 현재 다리 무게 + 가져온 트럭 무게
             sum += next
         }
         // 새로운 트럭을 올리 수 없다면 0을 추가해서 빈 공간 확보
