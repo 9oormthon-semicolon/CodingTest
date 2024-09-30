@@ -27,11 +27,15 @@ function solution(bridge_length, weight, truck_weights) {
     return time;
 }
 
-
 /**
- * 시간복잡도 o(n) 인줄 알았는데,, shift()연산이 트럭 리스트와 
- * 다리리스트에서 발생하여서 각각 o(n) 시간복잡도를 가지기 때문에
- * while 문에서 트럭개수 n에 비례하여 o(n)번 실행,
- * 각 반복마다 shift() 가 배열의 첫번째 요소를 제거할 때마다 o(n)이 걸려서
- * 최종 시간복잡도:  0(n^2)
+ * 일반 배열의 shift()는 O(n)의 
+ * 시간 복잡도를 갖는 반면(첫 번째 요소를 제거하고 다른 모든 요소를 ​​아래로 이동하기 때문입니다)
+ *  이동하려는 트럭(truck_weights)은 총 n에 불과하며 각 트럭을 한 번만 이동
+ * 마찬가지로 bridge.shift()는 최대 n + bridge_length 번 수행되며 이는 트럭 수에 비례
+ * 
+ * 매초마다 truck_weights 배열에서 shift()를 수행하거나(트럭당 최대 n 번 발생)
+ *  bridge 배열에서 shift()를 수행합니다( 이는 총 n + 브리지_length 번 발생합니다)
+ * 둘 다 트럭 수에 비례하므로 O(n) 작업
+ * 
+ * 최종 시간복잡도: O(n)
  */
