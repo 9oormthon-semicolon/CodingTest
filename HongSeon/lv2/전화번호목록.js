@@ -24,12 +24,11 @@ function solution(phone_book) {
  - phone_book.map[phone_book 순회] : O(n)
 
  - for(let i = 0; i < phone_book.length; i++)[phone_book 순회] : O(n)
-    - for(let j = 0; j < temp.length; j++)[temp순회] : O(m)
-        - temp.slice(0, j))[slice 메서드, temp 순회] : O(m)
+    ** temp = 전화번호 (길이는 1 ~ 20사이)
+    - for(let j = 0; j < temp.length; j++)[temp순회] : O(1~20)
+        - temp.slice(0, j))[slice 메서드, temp 순회] : O(1~20)
 
-=> 전체 시간 복잡도: O(n * m^2)
-   - n: phone_book.length
-   - m: temp.length
+=> 전체 시간 복잡도: O(n)
 */
 
 
