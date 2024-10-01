@@ -26,7 +26,6 @@ function solution(phone_book) {
 function solution(phone_book) {
   // 전화번호부 정렬
   phone_book.sort();
-  console.log(phone_book);
 
   // 인접한 두 번호만 비교
   for (let i = 0; i < phone_book.length - 1; i++) {
