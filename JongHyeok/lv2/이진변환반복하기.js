@@ -1,20 +1,13 @@
 function solution(s) {
-    var answer = [];
     let count = 0; // 이진 변환 횟수
     let zeroTotal = 0; // 제거한 0의 개수
 
-    while(1){
-        let zeroCount = (s.match(/0/g) || []).length; // 제거할 0의 개수 세기
-        zeroTotal += zeroCount;
-        s = s.replace(/0/g, ''); // 0 제거
-
-        s = s.length.toString(2);
-        count += 1; // 이진 변환 완료
-        if(s.length === 1 && s === "1") break; // 1이 되면 끝
+    while(s !== "1"){ // 1이 되면 끝
+        zeroTotal += (s.match(/0/g) || []).length; // 제거할 0의 개수 세기
+        s = s.replace(/0/g, '').length.toString(2); // 0 제거 & 이진 변환
+        count ++; // 이진 변환 완료
     }
-    answer.push(count);
-    answer.push(zeroTotal);
-    return answer;
+    return [count, zeroTotal];
 }
 
 const s = "110010101001";
