@@ -45,6 +45,8 @@ function solution(cacheSize, cities) {
   캐쉬를 사용하면 순서를 바꾸고 1만큼의 시간을 사용합니다. 
   이를 그냥 push shift로 구현했읍니다.
 
+  했다가 가운데 수가 히트 할 수 있다는 가능성 생각안하고 틀렸읍니다.
+  splice로 변경
   
   cities만큼 반복문을 사용해서 시간복잡도는 O(N)입니다.
 */
