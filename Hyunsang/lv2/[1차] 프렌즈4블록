@@ -1,0 +1,64 @@
+function solution(m, n, board) {
+    // 문자열 배열을 2차원 배열로 변환
+    board = board.map(row => row.split(''));
+    let count = 0;
+
+    while (true) {
+        let toBeDeleted = new Set();
+
+        // 2x2 블록 찾기
+        for (let i = 0; i < m - 1; i++) {
+            for (let j = 0; j < n - 1; j++) {
+                // 현재 블록 선택
+                let block = board[i][j];
+                if (
+                    // 블록이 비어있지 않고, 현재 선택블록에 
+                    // 오른쪽, 아래, 오른쪽아래 꺼 체크
+                    block !== ' ' &&
+                    block === board[i][j + 1] &&
+                    block === board[i + 1][j] &&
+                    block === board[i + 1][j + 1]
+                ) {
+                    // 현재블록 및 체크한 3개 블록 삭제해야할 거로 저장.
+                    toBeDeleted.add(`${i},${j}`);
+                    toBeDeleted.add(`${i},${j + 1}`);
+                    toBeDeleted.add(`${i + 1},${j}`);
+                    toBeDeleted.add(`${i + 1},${j + 1}`);
+                }
+            }
+        }
+
+        // 지울 블록이 없으면 반복 종료
+        if (toBeDeleted.size === 0) break;
+
+        // 지울 블록들 제거
+        toBeDeleted.forEach(pos => {
+            const [x, y] = pos.split(',').map(Number);
+            board[x][y] = ' ';
+        });
+
+        // 블록 떨어뜨리기
+        for (let j = 0; j < n; j++) {
+            for (let i = m - 1; i >= 0; i--) {
+                if (board[i][j] === ' ') {
+                    for (let k = i - 1; k >= 0; k--) {
+                        if (board[k][j] !== ' ') {
+                            board[i][j] = board[k][j];
+                            board[k][j] = ' ';
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        console.log(count)
+        // 지운 블록 개수 증가
+        count += toBeDeleted.size;
+    }
+
+    return count;
+}
+
+// 시간 복잡도: O(m² * n)
+// m 반복이 필요할 때 최악의 시간 복잡도이며, 
+// 각 반복마다 전체 m x n 보드를 스캔하고 조작
