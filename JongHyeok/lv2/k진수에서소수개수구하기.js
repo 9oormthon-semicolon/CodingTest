@@ -1,4 +1,4 @@
-function isPrime(num) { // 소수인지 판별하는 함수 시간복잡도 O(N^1/2)
+function isPrime(num) { // 소수인지 판별하는 함수 시간복잡도 O(√N)
     if (num < 2) return false; // 1은 소수가 아님
     
     for (let i = 2; i <= Math.sqrt(num); i++) {
@@ -20,7 +20,7 @@ const n = 110011, k = 10;
 console.log(solution(n, k));
 
 /*
-소수 판별 함수의 시간복잡도 O(N^1/2)
-메인 함수의 시간복잡도 변환된 문자열의 길이 m만큼 시간복잡도 O(M) (m은 최대 n만큼 길어질 수 있음)
-전체 시간복잡도는 O(N)
+소수 판별 함수의 시간복잡도 O(√N)
+메인 함수의 시간복잡도 변환된 문자열의 길이 logN만큼 시간복잡도 O(logN) 
+전체 시간복잡도는 O(logN * √N)
 */
