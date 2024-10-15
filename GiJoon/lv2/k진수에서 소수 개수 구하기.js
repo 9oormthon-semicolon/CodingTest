@@ -7,11 +7,9 @@ function isPrime(str) {
 
     for (let i = 3; i <= Math.sqrt(num); i += 2) {
         if (num % i === 0) return false
-    }
-    
+    }   
     return true
 }
-
 
 const solution = (n, k) => n.toString(k).split('0').filter(v => isPrime(v)).length
 
