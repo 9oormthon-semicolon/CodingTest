@@ -58,7 +58,15 @@ function solution(N, road, K) {
     set을 복사하고 넘겨주는 방식으로 풀었는데 시간이 오래걸리는 것 같아서 길의 최솟값을 저장해주는 arr로 교체
     
     set -> arr
+    
+    간선 수 = E
+    노드 수 = N 
+    road.forEach = O(E) 
+    while = O(N)
+    MAP[next].forEach(v => {}) = O(E) 
 
+    O(E * N) 같은데 
+    시간 복잡도 잘 모르겠네요...
 
     
 */
