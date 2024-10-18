@@ -20,7 +20,10 @@ function solution(numbers, target) {
 }
 
 /* 시간복잡도
- - 2중 for문 : O(n^2)
+ - 2중 for문 : O(2^n)
+ ** leaves 배열의 크기가 각 단계에서 두 배로 증가하기 때문
 
- => 전체 시간 복잡도 : O(n^2)
+ - filter : O(2^n)
+
+ => 전체 시간 복잡도 : O(2^n)
 */
