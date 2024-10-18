@@ -1,8 +1,6 @@
 function solution(numbers) {
-    let answer = numbers.map((number) => number.toString()).sort((a, b) => (b+a) - (a+b));
-    console.log(answer);
-
-    return answer[0] === "0" ? "0" : answer.join(''); // 0만 있는 경우는 맨 앞의 원소가 0이기 때문
+    let answer = numbers.map((number) => number.toString()).sort((a, b) => (b+a) - (a+b)).join('');
+    return answer[0] === "0" ? "0" : answer// 0만 있는 경우는 맨 앞의 원소가 0이기 때문
 }
 
 const numbers = [6,10,2];
