@@ -21,7 +21,7 @@ function solution(maps) {
             
             // 맵의 범위 벗어나지 않았나 확인
             if(mx >= 0 && my >= 0 && mx < row && my < col){
-                // 해당 좌표가 벽이 아닐 때
+                // 해당 좌표가 벽이 아니고 탐색했던 좌표가 아닐 경우
                 if(maps[mx][my] === 1){
                     // 이동한 좌표 값을 현재 좌표 값 + 1로 갱신 
                     maps[mx][my] = maps[x][y] + 1
