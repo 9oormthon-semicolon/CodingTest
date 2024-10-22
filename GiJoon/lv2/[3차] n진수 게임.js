@@ -4,13 +4,13 @@ function solution(n, t, m, p) {
     const lastOrder = t * m + (p - 1)
     
     while (answer.length < lastOrder) { // 튜브가 t횟수만큼 말할 때까지 모든 문자열 추출 
-        answer += i.toString(n).toUpperCase() //10진수를 초과하면 소문자로 반환 함 대문자로
+        answer += i.toString(n).toUpperCase() //10진수를 초과하면 소문자로 반환 함 때문에 대문자로 변경
         i++
     }
     
     //튜브 차레 추출 및 합치기
     return [...answer.slice(p - 1, lastOrder)]
-        .filter((v,idx)=>idx % m === 0)
+        .filter((v, idx)=> idx % m === 0)
         .join('')
 }
 
@@ -36,6 +36,6 @@ function solution(n, t, m, p) {
     O(t * m * log N(t * m))
     
     처음 보면 문제 조건 이해하기 나름 난해한 문제인데 
-    한 번 풀었던 문제라 쉽게 풀었네용
+    한 번 풀었던 문제라 쉽게 풀었습니다.
     
 */ 
