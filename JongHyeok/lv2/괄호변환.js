@@ -1,5 +1,5 @@
 function solution(p) {
-    function isRightStr(str) { // 올바른 문자열인지
+    function isRightStr(str) { // 올바른 문자열인지 시간복잡도 O(n)
         let total = 0; // '('와 ')'의 차이
         for (const char of str) {
             if (char === '(') total++; 
@@ -10,7 +10,7 @@ function solution(p) {
         return true;
     }
 
-    function splitBalancedStr(str) {
+    function splitBalancedStr(str) { // 시간복잡도 O(n)
         let total = 0; // '('와 ')'의 차이
         for (let i = 0; i < str.length; i++) {
             if (str[i] === '(') total++; 
@@ -20,7 +20,7 @@ function solution(p) {
         }
     }
 
-    function fixStr(str) {
+    function fixStr(str) { // 시간복잡도 O(n)
         if (str === "") return ""; // 입력이 빈 문자열인 경우, 빈 문자열 반환
         const [u, v] = splitBalancedStr(str); // "균형잡힌 괄호 문자열" u, v로 분리
 
@@ -40,3 +40,8 @@ function solution(p) {
 
 const p = "()))((()";
 console.log(solution(p)); // "()(())()"
+
+/*
+재귀를 사용하지만 결과적으로 모든 문자는 1번씩만 처리되기 때문에
+시간복잡도는 O(n)
+*/
