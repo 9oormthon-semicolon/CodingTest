@@ -29,3 +29,5 @@ function solution(skill, skill_trees) {
     
     return result;
 }
+
+// 시간복잡도 : O(n * m)
