@@ -3,12 +3,12 @@ function solution(genres, plays) {
     
     //장르별 음악 추출
     const numberOfStreaming = genres.reduce((check, v, idx) => {
-        //추출 + 재생홧수 누적  
+        //장르별 추출
         if (!cnt[v]) cnt[v] = [[idx,plays[idx]]] 
         
         else cnt[v].push([idx, plays[idx]])
         
-        //장르별 스트리밍 횟수 Map에 저장
+        //장르별 스트리밍 횟수 누적
         return check.set(v, check.get(v) ? check.get(v) + plays[idx] : plays[idx])
         
     },new Map());
