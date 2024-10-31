@@ -1,4 +1,4 @@
-// 문제 02 배열 제어하기
+// 문제 03 두 개 뽑아서 더하기
 function solution(number) {
     const arr = [];
     for (let i = 0; i < number.length; i++) {
