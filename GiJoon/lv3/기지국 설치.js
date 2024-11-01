@@ -21,11 +21,7 @@ function solution(n, stations, w) {
 }
 
 
-/*
-    묘하게 현실적인 문제
-    
-    완전탐색 같기도 하고 그냥 수학으로 풀 수 있을 것 같기도 하고    
-    
+/*    
     O(stations)
 */
 
