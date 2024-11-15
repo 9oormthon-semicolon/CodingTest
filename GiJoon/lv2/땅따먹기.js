@@ -1,34 +1,25 @@
-function solution(topping) {
-    const len = topping.length
+function solution(land) {   
+    const N = land.length, M = land[0].length
     
-    if(len == 1) return 0
+    if(N === 1) return Math.max(...land[0])
+    //매개 변수 직접 바꾸는 것 지양
+    const dp = [...land]
     
-    //결과 저장
-    const check = Array.from({ length: len + 1}, () => [0, 0])
-    const left = new Set()
-    const right = new Set()
     
-    //좌우 한 번에 계산
-    for (let i = 0; i < len; i++) {
-        const j = len - i - 1
-        
-        left.add(topping[i])
-        right.add(topping[j])
-        
-        check[i + 1][0] = left.size
-        check[j][1] = right.size
+    for (let row = 1; row < N; row++) {
+        //이전 값에서 최댓값 누적
+        for (let col = 0; col < M; col++) {
+            dp[row][col] += Math.max(...land[row - 1].slice(0,col), ...land[row - 1].slice(col + 1))
+        }
     }
     
-    //left랑 right의 값이 같은 값만 카운트
-    return check.reduce((cnt, [a, b]) => {
-        if(a === b) cnt++
-        return cnt
-    },0)
+    return Math.max(...dp[N - 1])
 }
 
 /*
-    반복문 하나로 할려고 set을 두 개나 사용해서 그런지 엄청 무겁네요...
-
-    O(N)
+    부분적으로 나누었을 때, 동일한 계산이 많아서 dp라고 판단했습니다
+    메모제이션을 이용해 최댓값만 추출하여 해결했습니다
+    
+    열의 갯수가 고정이라 for문 안써도 됐었네용
     
 */
