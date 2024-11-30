@@ -1,42 +1,48 @@
 function solution(n) {
+    let len = 0;
+    const dire = [{ x: 1, y: 0 }, { x: 0, y: 1 }, { x: -1, y: -1 } ];
+    const tri = Array.from({ length : n }, (_, idx) => {len += idx + 1; return Array(idx + 1).fill(0) });
     
-    const triangle = Array.from({ length: n }, (_, i) => Array(i + 1).fill(0));
-    let num = 1;
-    let row = 0, col = 0; // 시작 위치
-    let direction = 0; // 방향: 0(아래), 1(오른쪽), 2(위쪽 대각선)
-
-    while (num <= (n * (n + 1)) / 2) { // 숫자 최대 범위는 1부터 n(n+1)/2까지
-        triangle[row][col] = num++; // 현재 위치에 숫자 채우기
-
-        // 다음 위치 결정
-        if (direction === 0) { // 아래로 이동
-            if (row + 1 < n && triangle[row + 1][col] === 0) {
-                row++;
-            } else {
-                direction = 1; // 방향 전환: 오른쪽
-                col++;
-            }
-        } else if (direction === 1) { // 오른쪽으로 이동
-            if (col + 1 < triangle[row].length && triangle[row][col + 1] === 0) {
-                col++;
-            } else {
-                direction = 2; // 위쪽 대각선
-                row--;
-                col--;
-            }
-        } else if (direction === 2) { // 위쪽 대각선으로 이동
-            if (row - 1 >= 0 && col - 1 >= 0 && triangle[row - 1][col - 1] === 0) {
-                row--;
-                col--;
-            } else {
-                direction = 0; 아래로
-                row++;
-            }
-        }
+    let p = 0, x = 0, y = 0;
+    
+    const isTrue = () => {
+        const tx = x + dire[p].x, ty = y + dire[p].y 
+        
+        if (tx < 0 || tx >= n) return false;
+        
+        if (ty < 0 || ty >= tri[tx].length) return false;
+        
+        if (tri[tx][ty] !== 0) return false;
+        
+        return true
     }
-
-    // 결과를 1차원 배열로 변환
-    return triangle.flat();
+    
+    
+    for (let i = 1; i <= len; i++) {
+        tri[x][y] = i
+        
+        //범위에 벗어나거나 이미 채워진 값이면 포인터 교체
+        if (!isTrue()) p = (p + 1) % 3
+        
+        x += dire[p].x
+        y += dire[p].y
+        
+    }
+    
+    
+    return tri.flat()
 }
 
-// 시간복잡도 : 시간 복잡도: O(n^2)
+
+/*
+    어려워서 나중에 풀려고 했다가 잊었네용;
+    
+    1
+    2 9
+    3 10 8
+    4 5 6 7
+    
+    이차원 배열로 바꿔 순서대로 채우는 방법으로 풀었습니다.
+    
+    O(N!)
+*/
